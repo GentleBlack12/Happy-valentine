@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff4e8b, #ff99ac);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 350px;
+        position: relative;
+    }
+
+    h1 {
+        color: #ff4e8b;
+    }
+
+    button {
+        background: #ff4e8b;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff1e6a;
+    }
+
+    .message {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+        display: none;
+    }
+
+    .heart {
+        position: absolute;
+        color: #ff4e8b;
+        animation: float 4s linear infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-600px); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Happy Valentine ❤️</h1>
+    <p>Click the button to see my special message!</p>
+    <button onclick="showMessage()">Open Message</button>
+    <div class="message" id="valMsg">
+         Happy Valentine’s Day! to my favorite person
+        u dont need a sun to shine anymore☀️<br>
+        ur beauty na light expecially ur 4 headb <br>
+        My happiness 😊<br>
+         ❤️<br><br>
+        Happy Valentine’s Day! to my favorite person
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("valMsg").style.display = "block";
+    createHearts();
+}
+
+function createHearts() {
+    for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+</script>
+
+</body>
+</html>
